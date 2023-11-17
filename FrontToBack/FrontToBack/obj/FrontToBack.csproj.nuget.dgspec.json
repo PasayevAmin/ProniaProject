@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\FrontToBack\\FrontToBack\\FrontToBack.csproj": {}
+    "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\FrontToBack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\FrontToBack\\FrontToBack\\FrontToBack.csproj": {
+    "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\FrontToBack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
         "projectName": "FrontToBack",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
+        "projectPath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\FrontToBack\\FrontToBack\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,22 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
