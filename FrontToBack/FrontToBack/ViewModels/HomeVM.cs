@@ -8,5 +8,7 @@ namespace FrontToBack.ViewModels
         public List<Product> Products { get; set; }
         public List<Product> LastestProducts { get; set; }
 
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿<main class="main-content">
+﻿@model Product
+<main class="main-content">
     <div class="breadcrumb-area breadcrumb-height"
          data-bg-image="assets/images/breadcrumb/bg/1-1-1919x388.jpg">
         <div class="container h-100">
@@ -24,14 +25,7 @@
                     <div class="about-content">
                         <h2 class="about-title">Our <span>Story</span></h2>
                         <p class="about-desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum. Sed ut perspiciatis
+                            @Model.Description
                         </p>
                         <div class="about-signature">
                             <img src="~/assets/images/website-images/about/icon/2.png"

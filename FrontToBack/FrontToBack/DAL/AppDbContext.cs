@@ -1,5 +1,6 @@
 ﻿using FrontToBack.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.PortableExecutable;
 
 namespace FrontToBack.DAL
 {
@@ -11,5 +12,7 @@ namespace FrontToBack.DAL
         }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

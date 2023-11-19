@@ -2,6 +2,7 @@
 using FrontToBack.Models;
 using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FrontToBack.Controllers
 {
@@ -17,8 +18,8 @@ namespace FrontToBack.Controllers
         public IActionResult Index()
         {
             List<Slide> slides = _context.Slides.ToList();
-            List<Product> products = _context.Products.ToList();
-            List<Product> lastproducts = _context.Products.OrderByDescending(x=>x.Id).Take(8).ToList();
+            List<Product> products = _context.Products.Include(x=>x.ProductImages).ToList();
+            List<Product> lastproducts = _context.Products.Include(x=>x.ProductImages).OrderByDescending(x=>x.Id).Take(8).ToList();
 
 
             HomeVM home = new HomeVM
