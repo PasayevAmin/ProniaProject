@@ -29,14 +29,21 @@ namespace FrontToBack.Controllers
                 return BadRequest();
             }
 
-            Product product=_context.Products.Include(p=>p.Category).Include(p=>p.ProductImages).FirstOrDefault(x => x.Id == id);
-            List<Product> relatedproducts = _context.Products.Include(x => x.Category).Include(x => x.ProductImages).Where(p=>p.Id!=id).Where(p => p.CategoryId == product.CategoryId).ToList();
-            //for (int i = 0; i < relatedproducts.Count; i++)
-            //{
-            //    relatedproducts[i] = _context.Products.Include(x => x.Category).Include(x => x.ProductImages).FirstOrDefault(x => x.Id == product.CategoryId);
+            Product product = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.ProductImages)
+                .Include(x=>x.ProductColors).ThenInclude(x=>x.Color)
+                .Include(x=>x.ProductTags).ThenInclude(t=>t.Tag)
+                .Include(s=>s.ProductSizes).ThenInclude(s=>s.Size)
+                .FirstOrDefault(x => x.Id == id);
 
-
-            //}
+            List<Product> relatedproducts = _context.Products
+                .Include(x => x.Category)
+                .Include(x => x.ProductImages)
+                .Where(p=>p.Id!=id)
+                .Where(p => p.CategoryId == product.CategoryId)
+                .ToList();
+           
                 ProductVM productVM = new ProductVM
                 {
 
