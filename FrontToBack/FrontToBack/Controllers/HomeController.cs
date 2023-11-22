@@ -15,11 +15,11 @@ namespace FrontToBack.Controllers
             _context = context;
                 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Slide> slides = _context.Slides.ToList();
-            List<Product> products = _context.Products.Include(x=>x.ProductImages).ToList();
-            List<Product> lastproducts = _context.Products.Include(x=>x.ProductImages).OrderByDescending(x=>x.Id).Take(8).ToList();
+            List<Slide> slides = await _context.Slides.ToListAsync();
+            List<Product> products = await _context.Products.Include(x=>x.ProductImages).ToListAsync();
+            List<Product> lastproducts = await _context.Products.Include(x=>x.ProductImages).OrderByDescending(x=>x.Id).Take(8).ToListAsync();
 
 
             HomeVM home = new HomeVM
@@ -31,7 +31,7 @@ namespace FrontToBack.Controllers
 
             return View(home);
         }
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
             return View();
         }

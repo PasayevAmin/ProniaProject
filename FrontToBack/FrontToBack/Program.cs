@@ -8,6 +8,12 @@ builder.Services.AddDbContext<AppDbContext>(
     );
 var app = builder.Build();
 app.UseStaticFiles();
+app.UseRouting();
+
+app.MapControllerRoute(
+    "area",
+    "{area:exists}/{controller=Dashboard}/{action=index}/{id?}"
+    );
 
 app.MapControllerRoute(
     "default",

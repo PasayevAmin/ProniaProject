@@ -22,27 +22,32 @@ namespace FrontToBack.Controllers
         //    return View();
         //}
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id <= 0)
             {
                 return BadRequest();
             }
 
-            Product product = _context.Products
+            Product product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.ProductImages)
                 .Include(x=>x.ProductColors).ThenInclude(x=>x.Color)
                 .Include(x=>x.ProductTags).ThenInclude(t=>t.Tag)
                 .Include(s=>s.ProductSizes).ThenInclude(s=>s.Size)
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-            List<Product> relatedproducts = _context.Products
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            List<Product> relatedproducts =await _context.Products
                 .Include(x => x.Category)
                 .Include(x => x.ProductImages)
                 .Where(p=>p.Id!=id)
                 .Where(p => p.CategoryId == product.CategoryId)
-                .ToList();
+                .ToListAsync();
            
                 ProductVM productVM = new ProductVM
                 {
@@ -53,11 +58,7 @@ namespace FrontToBack.Controllers
                 };
             
 
-            
-            if (product == null)
-            {
-                return NotFound();
-            }
+           
 
             return View(productVM);
         }
