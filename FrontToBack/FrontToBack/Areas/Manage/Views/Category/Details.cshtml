@@ -1,0 +1,15 @@
+﻿@model Category
+
+@foreach (var item in Model.Products)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Category:@Model.Name</h5>
+            <h5 class="card-title">@item.Name</h5>
+            <h5 class="card-title">@item.SKU</h5>
+            <p class="card-text">@item.Description</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+}

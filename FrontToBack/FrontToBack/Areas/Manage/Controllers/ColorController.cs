@@ -53,5 +53,60 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Color color = await _context.Colors.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (color == null) return NotFound();
+            return View(color);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(int id, Color color)
+        {
+
+            if (!ModelState.IsValid) return View();
+            Color existed = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (existed == null) return NotFound();
+
+            bool result = await _context.Colors.AnyAsync(c => c.Name == existed.Name && c.Id != id);
+            if (result)
+            {
+                ModelState.AddModelError("Name", "This color is already available");
+                return View();
+            }
+
+            existed.Name = color.Name;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Deletes(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Color existed = await _context.Colors.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existed == null) return NotFound();
+
+            _context.Colors.Remove(existed);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Color existed = await _context.Colors.Include(x => x.ProductColors).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existed == null) return NotFound();
+            return View(existed);
+
+        }
     }
 }

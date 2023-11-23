@@ -3,9 +3,7 @@ using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Drawing;
-using FrontToBack.Models;
-using Size = FrontToBack.Models.Size;
+
 
 namespace FrontToBack.Areas.Manage.Controllers
 {
@@ -54,6 +52,61 @@ namespace FrontToBack.Areas.Manage.Controllers
             _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Size size = await _context.Sizes.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (size == null) return NotFound();
+            return View(size);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(int id, Tag tag)
+        {
+
+            if (!ModelState.IsValid) return View();
+            Size existed = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (existed == null) return NotFound();
+
+            bool result = await _context.Sizes.AnyAsync(c => c.Name == tag.Name && c.Id != id);
+            if (result)
+            {
+                ModelState.AddModelError("Name", "This size is already available");
+                return View();
+            }
+
+            existed.Name = tag.Name;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Deletes(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Size existed = await _context.Sizes.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existed == null) return NotFound();
+
+            _context.Sizes.Remove(existed);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Size existed = await _context.Sizes.Include(x => x.ProductSizes).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existed == null) return NotFound();
+            return View(existed);
+
         }
     }
 }

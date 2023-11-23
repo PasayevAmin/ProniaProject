@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xD5rYFAoQNHp27QGUBJGeB58zWR3QTmmcPKKd3TRzfA=",
+  "Hash": "7XTCClIunwfi/E1X4G8dpNKKU4SaVnJBVquVrQjY9Fw=",
   "Source": "FrontToBack",
   "BasePath": "_content/FrontToBack",
   "Mode": "Default",
@@ -1377,6 +1377,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\product\\medium-size\\1-9-270x300.jpg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\product\\medium-size\\jon-snow-17.jpg",
+      "SourceId": "FrontToBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
+      "BasePath": "_content/FrontToBack",
+      "RelativePath": "assets/images/product/medium-size/jon-snow-17.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\product\\medium-size\\jon-snow-17.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\product\\small-size\\1-1-112x124.png",
       "SourceId": "FrontToBack",
       "SourceType": "Discovered",
@@ -1681,6 +1698,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\sidebar\\banner\\1-270x300.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg",
+      "SourceId": "FrontToBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
+      "BasePath": "_content/FrontToBack",
+      "RelativePath": "assets/images/slider/800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\bg\\1-1.jpg",
