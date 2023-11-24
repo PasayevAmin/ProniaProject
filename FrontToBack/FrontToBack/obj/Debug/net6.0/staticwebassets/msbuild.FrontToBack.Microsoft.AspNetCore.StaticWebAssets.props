@@ -1584,22 +1584,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\sidebar\banner\1-270x300.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\slider\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FrontToBack</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FrontToBack</BasePath>
-      <RelativePath>assets/images/slider/800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\slider\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\slider\bg\1-1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FrontToBack</SourceId>

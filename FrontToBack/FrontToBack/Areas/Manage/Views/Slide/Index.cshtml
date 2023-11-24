@@ -56,13 +56,13 @@
                                                 @item.Title
                                             </td>
                                             <td>
-                                                @item.SubTitle.
+                                                @item.SubTitle
                                             </td>
                                             
                                             
                                             <td>
                                                 <a asp-controller="slide" asp-action="update" asp-route-Id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-border-color"></i></a>
-                                                <a asp-controller="slide" asp-action="deletes" asp-route-Id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete-sweep"></i></a>
+                                                <a asp-controller="slide" asp-action="delete" asp-route-Id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete-sweep"></i></a>
                                                 <a asp-controller="slide" asp-action="details" asp-route-Id="@item.Id" class="btn btn-primary"><i class="mdi mdi-book-open-variant"></i></a>
                                             </td>
                                         </tr>

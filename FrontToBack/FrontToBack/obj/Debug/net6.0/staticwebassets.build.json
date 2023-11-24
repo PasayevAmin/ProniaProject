@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7XTCClIunwfi/E1X4G8dpNKKU4SaVnJBVquVrQjY9Fw=",
+  "Hash": "h0BIegGoAl6Ra6CYXmbYE4qMT43G5ymTjhih8oFuV6Q=",
   "Source": "FrontToBack",
   "BasePath": "_content/FrontToBack",
   "Mode": "Default",
@@ -1698,23 +1698,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\sidebar\\banner\\1-270x300.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg",
-      "SourceId": "FrontToBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
-      "BasePath": "_content/FrontToBack",
-      "RelativePath": "assets/images/slider/800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\800x474-fenerbahce-efsanesi-alex-de-souza-kimdir-kac-yasinda-hangi-takimlarda-oynadi-teknik-direktorluk-ve-kariyeri-1617707630594.jpeg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\bg\\1-1.jpg",

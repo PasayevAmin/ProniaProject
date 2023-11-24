@@ -1,14 +1,12 @@
-﻿@model List<Slide>
+﻿@model Slide
 
-@foreach (var item in Model)
-{
+
     <div class="card" style="width: 18rem;">
-        <img src="~/assets/website-images/@item.Photo" class="card-img-top" alt="...">
+        <img src="~/assets/assets/images/slider/@Model.Photo" class="card-img-top" alt="...">
         <div class="card-body">
-            <h4 class="card-title">@item.Title</h4>
-            <h5 class="card-title">@item.SubTitle</h5>
-            <p class="card-text">@item.Description</p>
+            <h4 class="card-title">@Model.Title</h4>
+            <h5 class="card-title">@Model.SubTitle</h5>
+            <p class="card-text">@Model.Description</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-}
