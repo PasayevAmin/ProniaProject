@@ -1,4 +1,4 @@
-﻿@model List<Tag>
+﻿@model Tag
 
 @foreach (var item in Model)
 {
@@ -6,7 +6,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">@item.ProductTags</p>
+            <p class="card-text">@Model.Name</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
