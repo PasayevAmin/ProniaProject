@@ -1,5 +1,6 @@
 ﻿using Azure;
-using FrontToBack.Areas.ViewModels;
+using FrontToBack.Areas.Manage.ViewModels;
+
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using FrontToBack.Utilities.Extension;
@@ -32,27 +33,36 @@ namespace FrontToBack.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Slide slide)
+        public async Task<IActionResult> Create(CreateSlideVM slideVM)
         {
-          
-            if (slide.Photo is null)
+
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Photo","Please Choose the Photo");
                 return View();
             }
-            if (slide.Photo.CheckFile("image/"))
+            if (slideVM.Photo.CheckFile("image/"))
             {
                 ModelState.AddModelError("Photo", "Invalid file type");
                 return View();
 
             }
-            if (!slide.Photo.CheckSize(4 * 1024))
+            if (!slideVM.Photo.CheckSize(4 * 1024))
             {
                 ModelState.AddModelError("Photo", "File size should not be larger than 4 mb");
                 return View();
             }
 
-            slide.Image = await slide.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
+            string fileName = await slideVM.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
+
+            Slide slide = new Slide
+            {
+
+                Image=fileName,
+                Title=slideVM.Title,
+                SubTitle=slideVM.SubTitle,
+                Description=slideVM.Description,
+                
+            };
             await _context.Slides.AddAsync(slide);
             await _context.SaveChangesAsync();
 
@@ -67,39 +77,50 @@ namespace FrontToBack.Areas.Manage.Controllers
             Slide existed = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
 
             if (existed == null) return NotFound();
-            return View(existed);
+            UpdateSlideVM slideVM = new UpdateSlideVM
+            {
+                Title = existed.Title,
+                SubTitle = existed.SubTitle,
+                Description = existed.Description,
+                Image=existed.Image,
+            };
+
+            return View(slideVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Update(int id,Slide slide)
+        public async Task<IActionResult> Update(int id,UpdateSlideVM slideVM)
         {
 
-            Slide existed=await _context.Slides.FirstOrDefaultAsync(x=>x.Id == id);
-            if (existed == null) return NotFound();
+            
 
             if (!ModelState.IsValid)
             {
-                return View(existed);
+                return View(slideVM);
             }
-            if (slide.Photo is not null)
+
+            Slide existed = await _context.Slides.FirstOrDefaultAsync(x => x.Id == id);
+            if (existed == null) return NotFound();
+
+            if (slideVM.Photo is not null)
             {
-                if (slide.Photo.CheckFile("image/"))
+                if (slideVM.Photo.CheckFile("image/"))
                 {
                     ModelState.AddModelError("Photo", "Invalid file type");
-                    return View();
+                    return View(slideVM);
 
                 }
-                if (!slide.Photo.CheckSize(4 * 1024))
+                if (!slideVM.Photo.CheckSize(4 * 1024))
                 {
                     ModelState.AddModelError("Photo", "File size should not be larger than 4 mb");
-                    return View();
+                    return View(slideVM);
                 }
-                string filename = await slide.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
+                string filename = await slideVM.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
                 existed.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
             }
 
-            existed.Title = slide.Title;
-            existed.Description = slide.Description;
-            existed.SubTitle = slide.SubTitle;
+            existed.Title = slideVM.Title;
+            existed.Description = slideVM.Description;
+            existed.SubTitle = slideVM.SubTitle;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

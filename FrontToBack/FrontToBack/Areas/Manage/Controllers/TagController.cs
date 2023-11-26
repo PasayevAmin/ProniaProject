@@ -1,4 +1,5 @@
-﻿using FrontToBack.Areas.ViewModels;
+﻿
+using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,8 @@ namespace FrontToBack.Areas.Manage.Controllers
         public async Task<IActionResult> Index()
         {
             List<Tag> tags = await _context.Tags.Include(x=>x.ProductTags).ToListAsync();
-            DashboardVM dashboardVM = new DashboardVM
-            {
-                Tags = tags
-            };
-            return View(dashboardVM);
+            
+            return View(tags);
         }
 
         public async Task<IActionResult> Create()
@@ -33,7 +31,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Tag tag)
+        public async Task<IActionResult> Create(CreateTagVM tagVM)
         {
             if (!ModelState.IsValid)
             {
@@ -41,14 +39,18 @@ namespace FrontToBack.Areas.Manage.Controllers
             }
 
 
-            bool result = _context.Tags.Any(x => x.Name.Trim().ToLower() == tag.Name.Trim().ToLower());
+            bool result = _context.Tags.Any(x => x.Name.Trim().ToLower() == tagVM.Name.Trim().ToLower());
             if (result)
             {
                 ModelState.AddModelError("Name", "There is a category with this name");
                 return View();
             }
+            Tag tag=new Tag
+            {
+                Name = tagVM.Name
+            };
 
-            _context.Tags.Add(tag);
+            _context.Tags.AddAsync(tag);
             _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -101,7 +103,7 @@ namespace FrontToBack.Areas.Manage.Controllers
         {
             if (id <= 0) return BadRequest();
 
-            Tag existed = await _context.Tags.Include(x => x.ProductTags).FirstOrDefaultAsync(c => c.Id == id);
+            Tag existed = await _context.Tags.Include(x => x.ProductTags).ThenInclude(x=>x.Product).ThenInclude(x=>x.ProductImages).FirstOrDefaultAsync(c => c.Id == id);
 
             if (existed == null) return NotFound();
             return View(existed);

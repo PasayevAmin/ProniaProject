@@ -1,9 +1,9 @@
 ﻿@model Tag
 
-@foreach (var item in Model)
+@foreach (var item in Model.ProductTags)
 {
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="~/assets/images/website-images/@item.Product.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">@Model.Name</p>

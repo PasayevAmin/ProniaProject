@@ -33,6 +33,7 @@ namespace FrontToBack.Controllers
         }
         public async Task<IActionResult> About()
         {
+            
             return View();
         }
     }

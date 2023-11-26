@@ -1,4 +1,4 @@
-﻿@model DashboardVM
+﻿@model List<Size>
 @{
     int count = 0;
 }
@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.Sizes)
+                                    @foreach (var item in Model)
                                     {
                                         count++;
 
@@ -52,7 +52,7 @@
                                             <td>
                                                 <a asp-controller="Size" asp-action="update" asp-route-Id="@item.Id" details class="btn btn-warning btn-info"><i class="mdi mdi-border-color"></i></a>
                                                 <a asp-controller="Size" asp-action="deletes" asp-route-Id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete-sweep"></i></a>
-                                                <a asp-controller="Size" asp-action="update" asp-route-Id="@item.Id" class="btn btn-primary"><i class="mdi mdi-book-open-variant"></i></a>
+                                                <a asp-controller="Size" asp-action="details" asp-route-Id="@item.Id" class="btn btn-primary"><i class="mdi mdi-book-open-variant"></i></a>
                                             </td>
                                         </tr>
 

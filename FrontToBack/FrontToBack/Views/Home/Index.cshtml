@@ -9,7 +9,7 @@
             {
                 <div class="swiper-slide animation-style-01">
                     <div class="slide-inner style-1 bg-height"
-                         data-bg-image="~/assets/images/slider/bg/1-1.jpg">
+                         data-bg-image="~/assets/images/website-images//@item.Image">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 order-2 order-lg-1 align-self-center">
@@ -157,10 +157,10 @@
                                         <div class="product-img">
                                             <a asp-controller="product" asp-action="details" asp-route-Id="@item.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -204,9 +204,9 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.html">American Marigold</a>
+                                            <a class="product-name" asp-controller="product" asp-action="details" asp-route-Id="@item.Id">@item.Name</a>
                                             <div class="price-box pb-1">
-                                                <span class="new-price">$23.45</span>
+                                                <span class="new-price">$@item.Price</span>
                                             </div>
                                             <div class="rating-box">
                                                 <ul>
@@ -237,10 +237,10 @@
                                         <div class="product-img">
                                             <a asp-controller="product" asp-action="details" asp-route-Id="@item.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -284,9 +284,9 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.html">Butterfly Weed</a>
+                                            <a class="product-name" href="shop.html">@item.Name</a>
                                             <div class="price-box pb-1">
-                                                <span class="new-price">$50.45</span>
+                                                <span class="new-price">$@item.Price</span>
                                             </div>
                                             <div class="rating-box">
                                                 <ul>
@@ -316,10 +316,10 @@
                                         <div class="product-img">
                                             <a asp-controller="product" asp-action="details" asp-route-Id="@item.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==false).ImageURL"
+                                                     src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==false)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -483,12 +483,12 @@
                         {
                             <div class="swiper-slide product-item">
                                 <div class="product-img">
-                                    <a href="shop.html">
+                                    <a asp-controller="product" asp-action="details" asp-route-id="@item.Id">
                                         <img class="primary-img"
-                                             src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                             src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                              alt="Product Images" />
                                         <img class="secondary-img"
-                                             src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==false).ImageURL"
+                                             src="~/assets/images/website-images//@item.ProductImages.FirstOrDefault(x=>x.IsPrimary==false)?.ImageURL"
                                              alt="Product Images" />
                                     </a>
                                     

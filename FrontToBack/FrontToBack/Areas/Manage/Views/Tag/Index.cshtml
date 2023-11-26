@@ -1,4 +1,4 @@
-﻿@model DashboardVM
+﻿@model List<Tag>
 @{
     int count = 0;
 }
@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.Tags)
+                                    @foreach (var item in Model)
                                     {
                                         count++;
 

@@ -29,34 +29,34 @@
                         <div class="swiper-container single-product-slider">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                        class="single-img gallery-popup">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                              alt="Product Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false).ImageURL"
+                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false)?.ImageURL"
                                        class="single-img gallery-popup">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false)?.ImageURL"
                                              alt="Product Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                        class="single-img gallery-popup">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                              alt="Product Image" />
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                    <a href="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                        class="single-img gallery-popup">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                              alt="Product Image" />
                                     </a>
                                 </div>
@@ -67,22 +67,22 @@
                                 <div class="swiper-wrapper">
                                     <a href="#" class="swiper-slide">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==true)?.ImageURL"
                                              alt="Product Thumnail" />
                                     </a>
                                     <a href="#" class="swiper-slide">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==false)?.ImageURL"
                                              alt="Product Thumnail" />
                                     </a>
                                     <a href="#" class="swiper-slide">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                              alt="Product Thumnail" />
                                     </a>
                                     <a href="#" class="swiper-slide">
                                         <img class="img-full"
-                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null).ImageURL"
+                                             src="~/assets/images/website-images/@Model.Products.ProductImages.FirstOrDefault(x=>x.IsPrimary==null)?.ImageURL"
                                              alt="Product Thumnail" />
                                     </a>
                                 </div>
@@ -507,10 +507,10 @@
                                         <div class="product-img">
                                             <a asp-controller="product" asp-action="details" asp-route-Id="@item.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==true).ImageURL"
+                                                     src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==true)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==false).ImageURL"
+                                                     src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault(p=>p.IsPrimary==false)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">

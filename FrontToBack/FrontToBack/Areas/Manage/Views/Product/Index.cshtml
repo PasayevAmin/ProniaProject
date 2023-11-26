@@ -1,0 +1,87 @@
+﻿@model List<Product>
+@{
+    int count = 0;
+}
+
+
+
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Slide Table</h4>
+                        <a asp-controller="product" asp-action="create" class="btn btn-success">Create</a>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Image
+
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+
+                                        <th>
+                                            Settings
+
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Product item in Model)
+                                    {
+                                        count++;
+
+                                        <tr>
+
+                                            <td>
+                                                @count
+                                            </td>
+                                            <td>
+                                                <img style="width:100px;height:100px" src="~/assets/images/website-images/@item.ProductImages.FirstOrDefault()?.ImageURL">
+                                            </td>
+                                            <td>
+                                                @item.Name
+                                            </td>
+
+                                            <td>
+                                                @item.Price
+                                            </td>
+                                            <td>
+                                                @item.Category
+                                            </td>
+
+
+                                            <td>
+                                                <a asp-controller="product" asp-action="update" asp-route-Id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-border-color"></i></a>
+                                                <a asp-controller="product" asp-action="delete" asp-route-Id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete-sweep"></i></a>
+                                                <a asp-controller="product" asp-action="details" asp-route-Id="@item.Id" class="btn btn-primary"><i class="mdi mdi-book-open-variant"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>

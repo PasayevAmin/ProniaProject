@@ -1,4 +1,5 @@
-﻿using FrontToBack.Areas.ViewModels;
+﻿
+using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,8 @@ namespace FrontToBack.Areas.Manage.Controllers
         public async Task<IActionResult> Index()
         {
             List<Size> sizes = await _context.Sizes.Include(x=>x.ProductSizes).ToListAsync();
-            DashboardVM dashboardVM = new DashboardVM
-            {
-                Sizes =    sizes
-            };
-            return View(dashboardVM);
+           
+            return View(sizes);
         }
 
         public async Task<IActionResult> Create()
@@ -33,7 +31,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Size size)
+        public async Task<IActionResult> Create(CreateSizeVM sizeVM)
         {
             if (!ModelState.IsValid)
             {
@@ -41,12 +39,16 @@ namespace FrontToBack.Areas.Manage.Controllers
             }
 
 
-            bool result = _context.Sizes.Any(x => x.Name.Trim().ToLower() == size.Name.Trim().ToLower());
+            bool result = _context.Sizes.Any(x => x.Name.Trim().ToLower() == sizeVM.Name.Trim().ToLower());
             if (result)
             {
                 ModelState.AddModelError("Name", "There is a category with this name");
                 return View();
             }
+            Size size = new Size 
+            {
+                Name= sizeVM.Name,
+            };
 
             _context.Sizes.Add(size);
             _context.SaveChangesAsync();
@@ -102,7 +104,7 @@ namespace FrontToBack.Areas.Manage.Controllers
         {
             if (id <= 0) return BadRequest();
 
-            Size existed = await _context.Sizes.Include(x => x.ProductSizes).FirstOrDefaultAsync(c => c.Id == id);
+            Size existed = await _context.Sizes.Include(x => x.ProductSizes).ThenInclude(x=>x.Product).ThenInclude(x=>x.ProductImages).FirstOrDefaultAsync(c => c.Id == id);
 
             if (existed == null) return NotFound();
             return View(existed);

@@ -1,4 +1,5 @@
-﻿using FrontToBack.Areas.ViewModels;
+﻿
+using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,8 @@ namespace FrontToBack.Areas.Manage.Controllers
         public async Task<IActionResult> Index()
         {
             List<Color> colors = await _context.Colors.Include(x => x.ProductColors).ToListAsync();
-            DashboardVM dashboardVM = new DashboardVM
-            {
-                Colors = colors
-            };
-            return View(dashboardVM);
+          
+            return View(colors);
         }
 
         public async Task<IActionResult> Create()
@@ -33,7 +31,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Color color)
+        public async Task<IActionResult> Create(CreateColorVM colorVM)
         {
             if (!ModelState.IsValid)
             {
@@ -41,13 +39,16 @@ namespace FrontToBack.Areas.Manage.Controllers
             }
 
 
-            bool result = _context.Colors.Any(x => x.Name.Trim().ToLower() == color.Name.Trim().ToLower());
+            bool result = _context.Colors.Any(x => x.Name.Trim().ToLower() == colorVM.Name.Trim().ToLower());
             if (result)
             {
                 ModelState.AddModelError("Name", "There is a category with this name");
                 return View();
             }
-
+            Color color = new Color
+            {
+                Name= colorVM.Name,
+            };
             _context.Colors.Add(color);
             _context.SaveChangesAsync();
 
@@ -102,7 +103,7 @@ namespace FrontToBack.Areas.Manage.Controllers
         {
             if (id <= 0) return BadRequest();
 
-            Color existed = await _context.Colors.Include(x => x.ProductColors).FirstOrDefaultAsync(c => c.Id == id);
+            Color existed = await _context.Colors.Include(x => x.ProductColors).ThenInclude(x=>x.Product).ThenInclude(x=>x.ProductImages).FirstOrDefaultAsync(c => c.Id == id);
 
             if (existed == null) return NotFound();
             return View(existed);

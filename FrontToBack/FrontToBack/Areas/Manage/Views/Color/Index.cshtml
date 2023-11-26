@@ -1,4 +1,4 @@
-﻿@model DashboardVM
+﻿@model List<Color>
 @{
     int count = 0;
 }
@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.Colors)
+                                    @foreach (var item in Model)
                                     {
                                         count++;
 

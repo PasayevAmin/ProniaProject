@@ -1,0 +1,14 @@
+﻿@model Product
+
+
+<div class="card" style="width: 18rem;">
+    <img src="~/assets/images/website-images/@Model.ProductImages.FirstOrDefault()?.ImageURL" L" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h4 class="card-title">Name:@Model.Name</h4>
+        <h5 class="card-title">Price:@Model.Price</h5>
+        <p class="card-text">Description:@Model.Description</p>
+        <p class="card-text">SKU:@Model.SKU</p>
+        <p class="card-text">Category:@Model.Category.Name</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
