@@ -107,8 +107,42 @@ namespace FrontToBack.Areas.Manage.Controllers
                 SKU = productVM.SKU,
                 Description = productVM.Description,
                 CategoryId=(int)productVM.CategoryId,
+                ProductTags=new List<ProductTag>(),
+                ProductColors = new List<ProductColor>(),
+                ProductSizes = new List<ProductSize>()
+
 
             };
+
+
+            foreach (var item in productVM.TagIds)
+            {
+
+                ProductTag productTag = new ProductTag
+                {
+                    TagId = item
+                };
+                product.ProductTags.Add(productTag);
+            }
+
+            foreach (var item in productVM.SizeIds)
+            {
+
+                ProductSize productSize = new ProductSize
+                {
+                    SizeId = item
+                };
+                product.ProductSizes.Add(productSize);
+            }
+            foreach (var item in productVM.ColorIds)
+            {
+
+                ProductColor productColor = new ProductColor
+                {
+                    ColorId = item
+                };
+                product.ProductColors.Add(productColor);
+            }
 
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
