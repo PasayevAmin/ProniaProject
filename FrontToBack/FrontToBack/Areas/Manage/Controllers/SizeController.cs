@@ -63,11 +63,15 @@ namespace FrontToBack.Areas.Manage.Controllers
             Size size = await _context.Sizes.FirstOrDefaultAsync(c => c.Id == id);
 
             if (size == null) return NotFound();
-            return View(size);
+            UpdateSizeVM updateSizeVM = new UpdateSizeVM
+            {
+                Name = size.Name,
+            };
+            return View(updateSizeVM);
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Tag tag)
+        public async Task<IActionResult> Update(int id, UpdateSizeVM sizeVM)
         {
 
             if (!ModelState.IsValid) return View();
@@ -75,14 +79,14 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             if (existed == null) return NotFound();
 
-            bool result = await _context.Sizes.AnyAsync(c => c.Name == tag.Name && c.Id != id);
+            bool result = await _context.Sizes.AnyAsync(c => c.Name == sizeVM.Name && c.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "This size is already available");
                 return View();
             }
 
-            existed.Name = tag.Name;
+            existed.Name = sizeVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

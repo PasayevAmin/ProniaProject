@@ -62,11 +62,15 @@ namespace FrontToBack.Areas.Manage.Controllers
             Tag tag = await _context.Tags.FirstOrDefaultAsync(c => c.Id == id);
 
             if (tag == null) return NotFound();
-            return View(tag);
+            UpdateTagVM tagVM = new UpdateTagVM
+            {
+                Name=tag.Name,
+            };   
+            return View(tagVM);
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Tag tag)
+        public async Task<IActionResult> Update(int id, UpdateTagVM tagVM)
         {
 
             if (!ModelState.IsValid) return View();
@@ -74,14 +78,14 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             if (existed == null) return NotFound();
 
-            bool result = await _context.Tags.AnyAsync(c => c.Name == tag.Name && c.Id != id);
+            bool result = await _context.Tags.AnyAsync(c => c.Name == tagVM.Name && c.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "This tag is already available");
                 return View();
             }
 
-            existed.Name = tag.Name;
+            existed.Name = tagVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -1,5 +1,6 @@
 ﻿
 using FrontToBack.Areas.Manage.ViewModels;
+
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -62,11 +63,16 @@ namespace FrontToBack.Areas.Manage.Controllers
             Color color = await _context.Colors.FirstOrDefaultAsync(c => c.Id == id);
 
             if (color == null) return NotFound();
-            return View(color);
+            UpdateColorVM colorVM=new UpdateColorVM 
+            {
+                Name = color.Name,
+                
+            };
+            return View(colorVM);
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Color color)
+        public async Task<IActionResult> Update(int id, UpdateColorVM colorVM)
         {
 
             if (!ModelState.IsValid) return View();
@@ -74,14 +80,14 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             if (existed == null) return NotFound();
 
-            bool result = await _context.Colors.AnyAsync(c => c.Name == existed.Name && c.Id != id);
+            bool result = await _context.Colors.AnyAsync(c => c.Name == colorVM.Name && c.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "This color is already available");
                 return View();
             }
 
-            existed.Name = color.Name;
+            existed.Name = colorVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

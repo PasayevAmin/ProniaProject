@@ -58,12 +58,7 @@ namespace FrontToBack.Utilities.Extension
 
         }
 
-        public static void UpdateFile(this string fileName, string root, params string[] folders)
-        {
-
-
-
-        }
+      
         public static void CreateFileName(this string fileName, string root, params string[] folders)
         {
             string path = root;

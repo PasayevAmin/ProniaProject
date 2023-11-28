@@ -1,4 +1,5 @@
 ﻿
+using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Category category)
+        public async Task<IActionResult> Create(CreateCategoryVM categoryVM)
         {
             if (!ModelState.IsValid)
             {
@@ -38,12 +39,16 @@ namespace FrontToBack.Areas.Manage.Controllers
             }
 
 
-            bool result = _context.Categories.Any(x => x.Name.Trim().ToLower() == category.Name.Trim().ToLower());
+            bool result = _context.Categories.Any(x => x.Name.Trim().ToLower() == categoryVM.Name.Trim().ToLower());
             if (result)
             {
                 ModelState.AddModelError("Name", "There is a category with this name");
                 return View();
             }
+            Category category = new Category
+            {
+                Name = categoryVM.Name,
+            };
 
             _context.Categories.Add(category);
             _context.SaveChangesAsync();
@@ -58,11 +63,15 @@ namespace FrontToBack.Areas.Manage.Controllers
             Category category = await _context.Categories.FirstOrDefaultAsync(c=>c.Id==id);
 
             if (category == null) return NotFound();
-            return View(category);
+            UpdateCategoryVM categoryVM = new UpdateCategoryVM
+            {
+                Name = category.Name,
+            };
+            return View(categoryVM);
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(int id,Category category)
+        public async Task<IActionResult> Update(int id,UpdateCategoryVM categoryVM)
         {
 
             if(!ModelState.IsValid) return View();
@@ -70,14 +79,14 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             if (existed == null) return NotFound();
 
-            bool result = await _context.Categories.AnyAsync(c => c.Name == category.Name && c.Id!=id);
+            bool result = await _context.Categories.AnyAsync(c => c.Name == categoryVM.Name && c.Id!=id);
             if (result)
             {
                 ModelState.AddModelError("Name", "This category is already available");
                 return View();
             }
 
-            existed.Name= category.Name;
+            existed.Name= categoryVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -139,15 +139,6 @@ namespace FrontToBack.Areas.Manage.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-       
-
-
-
-
-
-
-
-
 
         public async Task<IActionResult> Details(int id)
         {
