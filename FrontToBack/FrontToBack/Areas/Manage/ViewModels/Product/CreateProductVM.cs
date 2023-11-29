@@ -23,6 +23,9 @@ namespace FrontToBack.Areas.Manage.ViewModels
         public List<int> ColorIds { get; set; }
        
         public List<int> SizeIds { get; set; }
+        public IFormFile MainPhoto { get; set; }
+        public IFormFile HoverPhoto { get; set; }
+        public List<IFormFile>? Photos { get; set; }
 
 
     }
