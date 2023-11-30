@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h0BIegGoAl6Ra6CYXmbYE4qMT43G5ymTjhih8oFuV6Q=",
+  "Hash": "eg/F6unmN4LCgh8Npf1ADj2Qw8VTynGfAUu/GFEovBA=",
   "Source": "FrontToBack",
   "BasePath": "_content/FrontToBack",
   "Mode": "Default",
@@ -1904,6 +1904,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\testimonial\\user\\3.png"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\024492b0-3288-444c-9a24-5ccd437087da2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "SourceId": "FrontToBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
+      "BasePath": "_content/FrontToBack",
+      "RelativePath": "assets/images/website-images/024492b0-3288-444c-9a24-5ccd437087da2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\024492b0-3288-444c-9a24-5ccd437087da2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\1.png",
       "SourceId": "FrontToBack",
       "SourceType": "Discovered",
@@ -2208,23 +2225,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\1-2-120x120.webp"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\1-2-270x300.jpg",
-      "SourceId": "FrontToBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
-      "BasePath": "_content/FrontToBack",
-      "RelativePath": "assets/images/website-images/1-2-270x300.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\1-2-270x300.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\1-2-310x220.jpg",
@@ -2703,6 +2703,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\3.png"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\6d6579ba-9b99-4717-aa17-b7fef1e160642srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "SourceId": "FrontToBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
+      "BasePath": "_content/FrontToBack",
+      "RelativePath": "assets/images/website-images/6d6579ba-9b99-4717-aa17-b7fef1e160642srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\6d6579ba-9b99-4717-aa17-b7fef1e160642srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\car.png",
       "SourceId": "FrontToBack",
       "SourceType": "Discovered",
@@ -2752,6 +2769,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\dark.png"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\e1b5cda3-f5da-4587-bba5-67ee2691dad32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "SourceId": "FrontToBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\",
+      "BasePath": "_content/FrontToBack",
+      "RelativePath": "assets/images/website-images/e1b5cda3-f5da-4587-bba5-67ee2691dad32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\e1b5cda3-f5da-4587-bba5-67ee2691dad32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\quotation.png",

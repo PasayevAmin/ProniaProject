@@ -11,8 +11,13 @@ namespace FrontToBack.Areas.Manage.ViewModels
         public string SKU { get; set; }
         [Required]
         public int CategoryId { get; set; }
+        public List<ProductImage>? ProductImages { get; set; }
+        public IFormFile? MainPhoto { get; set; }
+        public IFormFile? HoverPhoto { get; set; }
+        public List<IFormFile>? Photos { get; set; }
         public List<Category>? Categories { get; set; }
         public List<int> TagIds { get; set; }
+        public List<int>? ImageIds { get; set; }
         public List<int> ColorIds { get; set; }
         public List<int> SizeIds { get; set; }
         public List<Tag>? Tags { get; set; }

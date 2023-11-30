@@ -8,7 +8,7 @@ namespace FrontToBack.Utilities.Extension
 
         public static bool CheckFile(this IFormFile file,string type)
         {
-            if (!file.ContentType.Contains(type))
+            if (file.ContentType.Contains(type))
             {
                 return true;
 
