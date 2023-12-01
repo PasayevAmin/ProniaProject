@@ -40,7 +40,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             {
                 return View();
             }
-            if (slideVM.Photo.CheckFile("image/"))
+            if (!slideVM.Photo.CheckFile("image/"))
             {
                 ModelState.AddModelError("Photo", "Invalid file type");
                 return View();
@@ -103,7 +103,7 @@ namespace FrontToBack.Areas.Manage.Controllers
 
             if (slideVM.Photo is not null)
             {
-                if (slideVM.Photo.CheckFile("image/"))
+                if (!slideVM.Photo.CheckFile("image"))
                 {
                     ModelState.AddModelError("Photo", "Invalid file type");
                     return View(slideVM);

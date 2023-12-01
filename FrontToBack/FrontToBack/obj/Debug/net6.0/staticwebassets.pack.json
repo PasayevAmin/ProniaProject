@@ -397,6 +397,30 @@
       "PackagePath": "staticwebassets\\assets\\images\\sidebar\\banner\\1-270x300.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\632246f6-096a-4a4a-82c7-9871c5f76c5f1-1-524x617.png",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\632246f6-096a-4a4a-82c7-9871c5f76c5f1-1-524x617.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\767a4367-5723-4863-9bf9-0fae8eb838511-1-310x220.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\767a4367-5723-4863-9bf9-0fae8eb838511-1-310x220.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\91e932d2-4823-4842-94e5-c2d826769c121-2-310x220.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\91e932d2-4823-4842-94e5-c2d826769c121-2-310x220.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\a3d5df69-cebf-4998-b260-2f9ea756b04b767a4367-5723-4863-9bf9-0fae8eb838511-1-310x220.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\a3d5df69-cebf-4998-b260-2f9ea756b04b767a4367-5723-4863-9bf9-0fae8eb838511-1-310x220.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\b4ca6fd4-6b99-4cee-9a45-978ecc0fbf5291e932d2-4823-4842-94e5-c2d826769c121-2-310x220.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\b4ca6fd4-6b99-4cee-9a45-978ecc0fbf5291e932d2-4823-4842-94e5-c2d826769c121-2-310x220.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\ba0d5d47-e2e4-4ad2-9896-5d568f962d9d632246f6-096a-4a4a-82c7-9871c5f76c5f1-1-524x617.png",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\ba0d5d47-e2e4-4ad2-9896-5d568f962d9d632246f6-096a-4a4a-82c7-9871c5f76c5f1-1-524x617.png"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\slider\\bg\\1-1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\slider\\bg\\1-1.jpg"
     },
@@ -443,10 +467,6 @@
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\testimonial\\user\\3.png",
       "PackagePath": "staticwebassets\\assets\\images\\testimonial\\user\\3.png"
-    },
-    {
-      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\024492b0-3288-444c-9a24-5ccd437087da2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\website-images\\024492b0-3288-444c-9a24-5ccd437087da2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\1--1rnu4p.png",
@@ -633,10 +653,6 @@
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\3.png"
     },
     {
-      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\6d6579ba-9b99-4717-aa17-b7fef1e160642srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\website-images\\6d6579ba-9b99-4717-aa17-b7fef1e160642srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
-    },
-    {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\car.png",
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\car.png"
     },
@@ -647,10 +663,6 @@
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\dark.png",
       "PackagePath": "staticwebassets\\assets\\images\\website-images\\dark.png"
-    },
-    {
-      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\e1b5cda3-f5da-4587-bba5-67ee2691dad32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\website-images\\e1b5cda3-f5da-4587-bba5-67ee2691dad32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\MVS\\FrontToBack\\FrontToBack\\wwwroot\\assets\\images\\website-images\\quotation.png",

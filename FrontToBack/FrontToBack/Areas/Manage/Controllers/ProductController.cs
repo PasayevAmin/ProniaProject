@@ -266,7 +266,7 @@ namespace FrontToBack.Areas.Manage.Controllers
                .Include(x => x.ProductTags)
                .Include(x => x.ProductColors)
                .Include(x => x.ProductSizes)
-               .FirstOrDefaultAsync();
+               .FirstOrDefaultAsync(x => x.Id == id);
             if (product == null) return NotFound();
             UpdateProductVM createProductVM = new UpdateProductVM
             {

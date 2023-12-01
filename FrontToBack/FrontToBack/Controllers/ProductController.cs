@@ -47,6 +47,7 @@ namespace FrontToBack.Controllers
                 .Include(x => x.ProductImages)
                 .Where(p=>p.Id!=id)
                 .Where(p => p.CategoryId == product.CategoryId)
+                .Take(12)
                 .ToListAsync();
            
                 ProductVM productVM = new ProductVM
