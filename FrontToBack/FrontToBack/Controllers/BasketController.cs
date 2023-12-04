@@ -113,28 +113,18 @@ namespace FrontToBack.Controllers
             Product product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
             if (product == null) return NotFound();
             List<BasketCookieItemVM> basket;
-            if (Request.Cookies["Basket"] is null)
-            {
-                basket = new List<BasketCookieItemVM>();
-                BasketCookieItemVM basketCookieItemVM = new BasketCookieItemVM
-                {
-                    Id = id,
-                    Count = 1
-                };
-                basket.Add(basketCookieItemVM);
-
-            }
-            else
-            {
+           
                 basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
                 BasketCookieItemVM existed = basket.FirstOrDefault(x => x.Id == id);
-                if (existed == null)
+                if (existed != null)
                 {
                     BasketCookieItemVM basketCookieItemVM = new BasketCookieItemVM
                     {
                         Id = id,
                         Count = 1
                     };
+                basketCookieItemVM.Count++;
+
                     basket.Add(basketCookieItemVM);
                 }
                 else
@@ -142,7 +132,7 @@ namespace FrontToBack.Controllers
                     existed.Count++;
                 }
 
-            }
+            
 
             string json = JsonConvert.SerializeObject(basket);
             Response.Cookies.Append("Basket", json);
