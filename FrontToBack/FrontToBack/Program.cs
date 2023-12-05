@@ -1,5 +1,7 @@
 using FrontToBack.DAL;
+using FrontToBack.Models;
 using FrontToBack.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +13,24 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     opt=>opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
+builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
+{
+    option.Password.RequiredLength = 8;
+    option.Password.RequireNonAlphanumeric = false;
+    option.Password.RequireDigit = true;
+    option.Password.RequireLowercase = true;
+    option.Password.RequireUppercase = true;
+    option.User.RequireUniqueEmail = true;
+    option.Lockout.AllowedForNewUsers = true;
+    option.Lockout.MaxFailedAccessAttempts = 5;
+    option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(1);
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddScoped<LayoutServices>();
 
 var app = builder.Build();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseSession();
 app.UseStaticFiles();
 app.UseRouting();

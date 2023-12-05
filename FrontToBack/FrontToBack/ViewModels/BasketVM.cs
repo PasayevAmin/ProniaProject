@@ -4,7 +4,7 @@ namespace FrontToBack.ViewModels
 {
     public class BasketVM
     {
-        public Setting Settings { get; set; }
-        public BasketItemVM BasketItemVM { get; set; }
+        public Dictionary<string,string> Settings { get; set; }
+        public List<BasketItemVM> BasketItemVM { get; set; }
     }
 }

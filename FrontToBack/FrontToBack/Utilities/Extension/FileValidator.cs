@@ -70,6 +70,20 @@ namespace FrontToBack.Utilities.Extension
 
             
         }
+        public static string CapitalizeName(this string name)
+        {
+            string[] words = name.Split(' ');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(words[i]))
+                {
+                    words[i] = char.ToUpper(words[i][0]) + words[i].Substring(1);
+                }
+            }
+
+            return string.Join(" ", words);
+        }
 
     }
 }
