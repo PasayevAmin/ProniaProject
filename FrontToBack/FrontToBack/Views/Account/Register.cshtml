@@ -35,11 +35,10 @@
                                     <input asp-for="Name" placeholder="First Name" />
                                     <span class="text-danger" asp-validation-for="Name"></span>
                                 </div>
-                                <div class="col-md-6 col-12">
-                                    <label asp-for="Gender">Gender:</label>
-                                    <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
-                                        <option value="">Select Gender</option>
-                                    </select>
+                                <div class="col-md-6 ">
+                                        <input type="radio" asp-for="Gender" value="Male" /> Male
+                                        <input type="radio" asp-for="Gender" value="Female" /> Female
+                                        <input type="radio" asp-for="Gender" value="Other" /> Other
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <label asp-for="Surname">Last Name</label>

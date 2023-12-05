@@ -27,7 +27,7 @@ namespace FrontToBack.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterVM registerVM,Gender gender)
+        public async Task<IActionResult> Register(RegisterVM registerVM)
         {
             if (!ModelState.IsValid)
             {
@@ -42,29 +42,31 @@ namespace FrontToBack.Controllers
                 return View();
             }
 
+
+            
             AppUser user = new AppUser
             {
                 Email = registerVM.Email,
                 Name = registerVM.Name.CapitalizeName(),
                 Surname = registerVM.Surname.CapitalizeName(),
                 UserName = registerVM.UserName,
-                Gender=gender
+                Gender=registerVM.Gender
             };
-
-           
-            
-
-            IdentityResult result= await _userManager.CreateAsync(user, registerVM.Password);
+            IdentityResult result = await _userManager.CreateAsync(user, registerVM.Password);
             if (!result.Succeeded)
             {
                 foreach (var eror in result.Errors)
                 {
-                    ModelState.AddModelError(String.Empty,eror.Description);
+                    ModelState.AddModelError(String.Empty, eror.Description);
                 }
                 return View();
             }
             await _signInManager.SignInAsync(user, isPersistent: false);
-            
+
+
+
+
+
 
 
             return RedirectToAction("Index","Home");

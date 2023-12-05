@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FrontToBack.Utilities.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace FrontToBack.ViewModels
 {
@@ -21,7 +22,7 @@ namespace FrontToBack.ViewModels
         [MinLength(4)]
         public string UserName { get; set; }
         [Required]
-        public string Gender { get; set; }
+        public Gender Gender { get; set; }
         [Required]
       
         [DataType(DataType.Password)]
