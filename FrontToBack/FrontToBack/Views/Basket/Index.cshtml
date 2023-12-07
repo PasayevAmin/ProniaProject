@@ -1,6 +1,7 @@
 ﻿@model List<BasketItemVM>
+
 @{
-    decimal Total = 0;
+    decimal total = 0;
 }
 <main class="main-content">
     <div class="breadcrumb-area breadcrumb-height"
@@ -41,10 +42,10 @@
                                 <tbody>
                                     @foreach (BasketItemVM item in Model)
                                     {
-                                        Total += item.SubTotal;
+                                        total += item.SubTotal;
                                         <tr>
                                             <td class="product_remove">
-                                                <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Id">
+                                                <a asp-action="remove" asp-controller="basket" asp-route-id="@item.Id">
                                                     <i class="pe-7s-close"
                                                        data-tippy="Remove"
                                                        data-tippy-inertia="true"
@@ -55,37 +56,36 @@
                                                 </a>
                                             </td>
                                             <td class="product-thumbnail">
-                                                <a asp-controller="product" asp-action="details" asp-route-id="@item.Id">
-                                                    <img style="width:150px;height:150px;" src="~/assets/images/website-images/@item.Image"
+                                                <a asp-action="details" asp-controller="product" asp-route-id="@item.Id">
+                                                    <img style="width:135px;height:135px" src="~/assets/images/website-images/@item.Image"
                                                          alt="Cart Thumbnail" />
                                                 </a>
                                             </td>
                                             <td class="product-name">
-                                                <a asp-controller="product" asp-action="details" asp-route-id="@item.Id">@item.Name </a>
+                                                <a asp-action="details" asp-controller="product" asp-route-id="@item.Id">@item.Name</a>
                                             </td>
                                             <td class="product-price">
                                                 <span class="amount">$@item.Price</span>
                                             </td>
                                             <td class="quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box"
-                                                           value="@item.Count"
-                                                           type="text" />
-                                                    <button type="button">
-                                                        <a asp-controller="basket" asp-action="minusbasket"><i class="fa fa-minus"></i></a>
-                                                    </button>
-                                                    <button type="button">
-                                                        <a asp-controller="basket" asp-action="plusbasket"><i class="fa fa-plus"></i></a>
-                                                    </button>
-                                                </div>
+                                                <button type="button" class="btn btn-outline-danger">
+                                                    <a asp-action="minus" asp-controller="basket" asp-route-id="@item.Id">
+                                                        -
+                                                    </a>
+                                                    @item.Count
+                                                    <a asp-action="plus" asp-controller="basket" asp-route-id="@item.Id">
+                                                        +
+                                                    </a>
+                                                </button>
+                                                    
+
                                             </td>
                                             <td class="product-subtotal">
                                                 <span class="amount">$@item.SubTotal</span>
                                             </td>
                                         </tr>
-
                                     }
-
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -119,7 +119,7 @@
                                     <h2>Cart totals</h2>
                                     <ul>
                                         
-                                        <li>Total <span>$@Total</span></li>
+                                        <li>Total <span>$@total</span></li>
                                     </ul>
                                     <a href="#">Proceed to checkout</a>
                                 </div>

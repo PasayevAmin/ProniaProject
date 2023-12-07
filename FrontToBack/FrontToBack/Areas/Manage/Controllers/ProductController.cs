@@ -3,6 +3,7 @@ using FrontToBack.DAL;
 using FrontToBack.Models;
 using FrontToBack.Utilities.Extension;
 using FrontToBack.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,7 @@ namespace FrontToBack.Areas.Manage.Controllers
                 .ToListAsync();
             return View(products);
         }
+
         public async Task<IActionResult> Create()
         {
 
@@ -42,6 +44,9 @@ namespace FrontToBack.Areas.Manage.Controllers
             };
             return View(productVM);
         }
+
+        [Authorize(Roles = "Admin,Moderator")]
+
         [HttpPost]
 
         public async Task<IActionResult> Create(CreateProductVM productVM)
@@ -255,6 +260,7 @@ namespace FrontToBack.Areas.Manage.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0)
@@ -287,6 +293,8 @@ namespace FrontToBack.Areas.Manage.Controllers
             };
             return View(createProductVM);
         }
+        [Authorize(Roles = "Admin,Moderator")]
+
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateProductVM productVM)
         {
@@ -523,6 +531,8 @@ namespace FrontToBack.Areas.Manage.Controllers
 
 
         }
+        [Authorize(Roles = "Admin")]
+
 
         public async Task<IActionResult> Delete(int id)
         {

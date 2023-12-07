@@ -4,52 +4,63 @@ using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using NuGet.Configuration;
 
 namespace FrontToBack.ViewComponents
 {
-    public class HeaderViewComponent:ViewComponent
+    public class HeaderViewComponent : ViewComponent
     {
         public readonly AppDbContext _context;
 
         public HeaderViewComponent(AppDbContext context)
         {
             _context = context;
-     
-        
+
+
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var settings = await _context.Settings.ToDictionaryAsync(x => x.Key, x => x.Value);
-           
             List<BasketItemVM> items = new List<BasketItemVM>();
             if (Request.Cookies["Basket"] is not null)
             {
                 List<BasketCookieItemVM> cookies = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(Request.Cookies["Basket"]);
-                foreach (var item in cookies)
+
+
+                for (int i = 0; i < cookies.Count; i++)
                 {
-                    Product product = await _context.Products.Include(p => p.ProductImages.Where(pi => pi.IsPrimary == true)).FirstOrDefaultAsync(p => p.Id == item.Id);
-                    if (product != null)
+                    Product product = await _context.Products
+                   .Include(x => x.ProductImages.Where(pi => pi.IsPrimary == true))
+                   .FirstOrDefaultAsync(p => p.Id == cookies[i].Id);
+                    if (cookies[i].Count >= 1)
                     {
-                        BasketItemVM itemVM = new BasketItemVM
+                        if (product != null)
                         {
-                            Id = product.Id,
-                            Name = product.Name,
-                            Image = product.ProductImages.FirstOrDefault().ImageURL,
-                            Price = product.Price,
-                            Count = item.Count,
-                            SubTotal = product.Price * item.Count
-                        };
-                        items.Add(itemVM);
+                            BasketItemVM itemVM = new BasketItemVM
+                            {
+                                Id = product.Id,
+                                Name = product.Name,
+                                Image = product.ProductImages.FirstOrDefault().ImageURL,
+                                Price = product.Price,
+                                Count = cookies[i].Count,
+                                SubTotal = product.Price * cookies[i].Count
+                            };
+                            items.Add(itemVM);
+                        }
                     }
+
                 }
             }
-            BasketVM basketVM = new BasketVM
+            Dictionary<string, string> settings = await _context.Settings.ToDictionaryAsync(s => s.Key, s => s.Value);
+            BasketVM basketHomeVM = new BasketVM
             {
-                Settings=settings,
-                BasketItemVM=items
+                Settings = settings,
+                BasketItemVM = items,
             };
-            return View (basketVM);
+            return View(basketHomeVM);
         }
+
+
     }
 }
+
 

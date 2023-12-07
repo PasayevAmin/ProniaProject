@@ -2,13 +2,16 @@
 using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace FrontToBack.Areas.Manage.Controllers
 {
-    [Area("Manage")]
+    [Area("manage")]
+    [Authorize]
+
     public class SizeController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,5 +1,5 @@
-﻿@using FrontToBack.Services;
-@model BasketVM
+﻿@model BasketVM
+
 @{
     decimal total = 0;
 }
@@ -61,10 +61,10 @@
                     <div class="header-middle-wrap position-relative">
                         <div class="header-contact d-none d-lg-flex">
                             <i class="pe-7s-call"></i>
-                            <a href="tel://@Model.Settings["Phone"]">@Model.Settings["Phone"]</a>
+                            <a href="tel://@Model.["Phone"]">@Model.Settings["Phone"]</a>
                         </div>
 
-                        <a asp-controller="home" asp-action="index" class="header-logo">
+                        <a asp-controller="Home" asp-action="Index" class="header-logo">
                             <img src="~/assets/images/logo/@Model.Settings["Logo"]" alt="Header Logo" />
                         </a>
 
@@ -75,7 +75,7 @@
                                        class="search-btn bt"
                                        data-bs-toggle="modal"
                                        data-bs-target="#exampleModal">
-                                        @Html.Raw(Model.Settings["SearchIcon"])
+                                        @Html.Raw(@Model.Settings["SearchIcon"])
                                     </a>
                                 </li>
                                 <li class="dropdown d-none d-lg-block">
@@ -85,11 +85,11 @@
                                             data-bs-toggle="dropdown"
                                             aria-label="setting"
                                             aria-expanded="false">
-                                        @Html.Raw(Model.Settings["PeopleIcon"])
+                                        <i class="pe-7s-users"></i>
                                     </button>
                                     <ul class="dropdown-menu"
                                         aria-labelledby="settingButton">
-                                       @if (User.Identity.IsAuthenticated)
+                                        @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
                                                 <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
@@ -97,26 +97,26 @@
                                             <li>
                                                 <a class="dropdown-item" asp-action="logout" asp-controller="account">Logout</a>
                                             </li>
-                                        }
-                                        else
-                                        {
+                                        }else{
                                             <li>
-                                                <a class="dropdown-item" asp-action="register" asp-controller="account">Login | Register</a>
+                                                <a class="dropdown-item" asp-action="signin" asp-controller="account" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" asp-action="register" asp-controller="account">Register</a>
+                                            </li>
                                         }
                                         
                                     </ul>
                                 </li>
                                 <li class="d-none d-lg-block">
                                     <a href="wishlist.html">
-                                        @Html.Raw(Model.Settings["HeartIcon"])
+                                        <i class="pe-7s-like"></i>
                                     </a>
                                 </li>
                                 <li class="minicart-wrap me-3 me-lg-0">
-                                    <a   class="minicart-btn toolbar-btn">
-                                        @Html.Raw(Model.Settings["BasketIcon"])
-                                        <span class="quantity">3</span>
+                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                        <i class="pe-7s-shopbag"></i>
+                                        <span class="quantity">@Model.BasketItemVM.Count</span>
                                     </a>
                                 </li>
                                 <li class="mobile-menu_wrap d-block d-lg-none">
@@ -140,7 +140,7 @@
                         <nav class="main-nav">
                             <ul>
                                 <li class="drop-holder">
-                                    <a asp-controller="home" asp-action="index">Home</a>
+                                    <a href="index.html">Home</a>
                                     <ul class="drop-menu">
                                         <li>
                                             <a href="index.html">Home One</a>
@@ -236,7 +236,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a asp-controller="home" asp-action="about"> About Us</a>
+                                    <a href="about.html">About Us</a>
                                 </li>
                                 <li class="drop-holder">
                                     <a href="#">Pages</a>
@@ -264,7 +264,7 @@
             <div class="header-nav position-relative">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-6">
-                        <a asp-controller="home" asp-action="index" class="header-logo">
+                        <a href="index.html" class="header-logo">
                             <img src="~/assets/images/logo/@Model.Settings["Logo"]" alt="Header Logo" />
                         </a>
                     </div>
@@ -369,7 +369,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a asp-controller="home" asp-action="about">About Us</a>
+                                        <a href="about.html">About Us</a>
                                     </li>
                                     <li class="drop-holder">
                                         <a href="#">Pages</a>
@@ -398,7 +398,6 @@
                                        data-bs-toggle="modal"
                                        data-bs-target="#exampleModal">
                                         @Html.Raw(@Model.Settings["SearchIcon"])
-
                                     </a>
                                 </li>
                                 <li class="dropdown d-none d-lg-block">
@@ -408,7 +407,7 @@
                                             data-bs-toggle="dropdown"
                                             aria-label="setting"
                                             aria-expanded="false">
-                                        @Html.Raw(Model.Settings["PeopleIcon"])
+                                        <i class="pe-7s-users"></i>
                                     </button>
                                     <ul class="dropdown-menu"
                                         aria-labelledby="stickysettingButton">
@@ -422,13 +421,13 @@
                                 </li>
                                 <li class="d-none d-lg-block">
                                     <a href="wishlist.html">
-                                        @Html.Raw(Model.Settings["HeartIcon"])
+                                        <i class="pe-7s-like"></i>
                                     </a>
                                 </li>
                                 <li class="minicart-wrap me-3 me-lg-0">
-                                    <a  class="minicart-btn toolbar-btn">
-                                        @Html.Raw(Model.Settings["BasketIcon"])
-                                        <span class="quantity">3</span>
+                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                        <i class="pe-7s-shopbag"></i>
+                                        <span class="quantity">@Model.BasketItemVM.Count</span>
                                     </a>
                                 </li>
                                 <li class="mobile-menu_wrap d-block d-lg-none">
@@ -491,7 +490,7 @@
                                     id="settingButtonTwo"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                @Html.Raw(Model.Settings["PeopleIcon"])
+                                <i class="pe-7s-users"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="settingButtonTwo">
@@ -695,7 +694,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a asp-controller="home" asp-action="about">
+                                <a href="about.html">
                                     <span class="mm-text">About Us</span>
                                 </a>
                             </li>
@@ -765,8 +764,7 @@
                             <button class="search-btn"
                                     type="submit"
                                     aria-label="searchbtn">
-                                @Html.Raw(Model.Settings["SearchIcon"])
-
+                                @Html.Raw(@Model.Settings["SearchIcon"])
                             </button>
                         </form>
                     </div>
@@ -789,13 +787,12 @@
                            data-tippy-theme="sharpborder"></i>
                     </a>
                 </div>
-                <div>
                 <ul class="minicart-list">
-                    @foreach (var item in Model.BasketItemVM)
+                    @foreach (BasketItemVM item in Model.BasketItemVM)
                     {
                         total += item.SubTotal;
                         <li class="minicart-product">
-                            <a class="product-item_remove" asp-controller="basket" asp-action="remove">
+                            <a class="product-item_remove" asp-action="remove" asp-controller="basket" asp-route-id="@item.Id">
                                 <i class="pe-7s-close"
                                    data-tippy="Remove"
                                    data-tippy-inertia="true"
@@ -812,25 +809,23 @@
                             </a>
                             <div class="product-item_content">
                                 <a class="product-item_title"
-                                   asp-action="details" asp-controller="product" asp-route-id="@item.Id">@item.Name</a>
+                               asp-action="details" asp-controller="product" asp-route-id="@item.Id">@item.Name</a>
                                 <span class="product-item_quantity">@item.Count x $@item.Price</span>
                             </div>
                         </li>
-
                     }
-
+                    
                 </ul>
-                </div>
             </div>
             <div class="minicart-item_total">
-                <span>Subtotal</span>
+                <span>Total</span>
                 <span class="ammount">$@total</span>
             </div>
             <div class="group-btn_wrap d-grid gap-2">
                 <a asp-action="index" asp-controller="basket" class="btn btn-dark">View Cart</a>
                 <a href="checkout.html" class="btn btn-dark">Checkout</a>
             </div>
-
+        </div>
     </div>
     <div class="global-overlay"></div>
 </header>

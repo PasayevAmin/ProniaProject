@@ -113,7 +113,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Color", b =>
@@ -131,7 +131,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Colors");
+                    b.ToTable("Colors", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Product", b =>
@@ -164,7 +164,7 @@ namespace FrontToBack.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.ProductColor", b =>
@@ -187,7 +187,7 @@ namespace FrontToBack.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductColors");
+                    b.ToTable("ProductColors", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.ProductImage", b =>
@@ -216,7 +216,7 @@ namespace FrontToBack.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.ProductSize", b =>
@@ -239,7 +239,7 @@ namespace FrontToBack.Migrations
 
                     b.HasIndex("SizeId");
 
-                    b.ToTable("ProductSizes");
+                    b.ToTable("ProductSizes", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.ProductTag", b =>
@@ -262,7 +262,7 @@ namespace FrontToBack.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("ProductTags");
+                    b.ToTable("ProductTags", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Setting", b =>
@@ -283,7 +283,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings");
+                    b.ToTable("Settings", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Size", b =>
@@ -301,7 +301,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sizes");
+                    b.ToTable("Sizes", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Slide", b =>
@@ -330,7 +330,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides");
+                    b.ToTable("Slides", (string)null);
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Tag", b =>
@@ -348,7 +348,7 @@ namespace FrontToBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

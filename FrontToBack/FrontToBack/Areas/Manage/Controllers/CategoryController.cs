@@ -2,6 +2,7 @@
 using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
@@ -9,6 +10,8 @@ using System.Data.Common;
 namespace FrontToBack.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize]
+
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;

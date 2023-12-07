@@ -29,16 +29,17 @@ builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddScoped<LayoutServices>();
 
 var app = builder.Build();
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
-app.UseStaticFiles();
-app.UseRouting();
-
 app.MapControllerRoute(
     "area",
     "{area:exists}/{controller=Dashboard}/{action=index}/{id?}"
     );
+app.UseStaticFiles();
+app.UseSession();
+
+
 
 app.MapControllerRoute(
     "default",

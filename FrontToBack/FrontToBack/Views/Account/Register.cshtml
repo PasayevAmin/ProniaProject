@@ -1,18 +1,20 @@
-﻿@model RegisterVM
+﻿
+@using FrontToBack.Utilities.Enums;
+@model RegisterVM
 
 <main class="main-content">
     <div class="breadcrumb-area breadcrumb-height"
-         data-bg-image="~/assets/images/breadcrumb/bg/1-1-1919x388.jpg">
+         data-bg-image="assets/images/breadcrumb/bg/1-1-1919x388.jpg">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-12">
                     <div class="breadcrumb-item">
-                        <h2 class="breadcrumb-heading">Login & Register Page</h2>
+                        <h2 class="breadcrumb-heading">Register Page</h2>
                         <ul>
                             <li>
                                 <a href="index.html">Home</a>
                             </li>
-                            <li>Login | Register</li>
+                            <li>Register</li>
                         </ul>
                     </div>
                 </div>
@@ -27,46 +29,52 @@
                         <div class="login-form">
                             <h4 class="login-title">Register</h4>
                             <div class="row">
-                                <div class="text-danger" asp-validation-summary="ModelOnly">
-
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                <div class="col-md-6 col-12">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" placeholder="Name" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <label asp-for="Name">First Name</label>
-                                    <input asp-for="Name" placeholder="First Name" />
-                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                    <label asp-for="Surname">Surname</label>
+                                    <input asp-for="Surname" placeholder="Surname" />
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-6 ">
-                                        <input type="radio" asp-for="Gender" value="Male" /> Male
-                                        <input type="radio" asp-for="Gender" value="Female" /> Female
-                                        <input type="radio" asp-for="Gender" value="Other" /> Other
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <label asp-for="Surname">Last Name</label>
-                                    <input asp-for="Surname" placeholder="Last Name" />
-                                    <span class="text-danger" asp-validation-for="Surname"></span>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <label asp-for="UserName">UserName </label>
-                                    <input asp-for="UserName" placeholder="UserName " />
-                                    <span class="text-danger" asp-validation-for="UserName"></span>
-                                </div>
-                               
                                 <div class="col-md-12">
-                                    <label asp-for="Email">Email </label>
-                                    <input asp-for="Email" placeholder=" Email" />
-                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                    <label asp-for="Username">Username</label>
+                                    <input asp-for="Username" placeholder="Username" />
+                                    <span asp-validation-for="Username" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label asp-for="Password">Password </label>
-                                    <input asp-for="Password" placeholder=" Password" />
-                                    <span class="text-danger" asp-validation-for="Password"></span>
+                                    <label asp-for="Email">Email</label>
+                                    <input asp-for="Email" type="email" placeholder="Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Confirm Password</label>
-                                    <input type="password" placeholder="Confirm Password" />
+                                    <label asp-for="Password">Password</label>
+                                    <input asp-for="Password" placeholder="Password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="ConfirmPassword">ConfirmPassword</label>
+                                    <input asp-for="ConfirmPassword" placeholder="ConfirmPassword" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label asp-for="Gender"></label>
+                                    @foreach (var item in Html.GetEnumSelectList<Gender>())
+                                    {
+                                        <div class="d-flex form-check">
+                                            <label asp-for="Gender" class="from-cheeck-label" for="@item.Value">@item.Text</label>
+                                            <input asp-for="Gender" id="@item.Value" class="from-cheeck-input" type="radio" value="@item.Text" />
+                                        </div>
+
+                                    }
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-custom-size lg-size btn-pronia-primary" type="submit">
+                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">
                                         Register
                                     </button>
                                 </div>
