@@ -10,5 +10,6 @@ namespace FrontToBack.Models
         public Gender Gender { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
     }
 }

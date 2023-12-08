@@ -6,5 +6,6 @@ namespace FrontToBack.ViewModels
     {
         public Dictionary<string,string> Settings { get; set; }
         public List<BasketItemVM> BasketItemVM { get; set; }
+
     }
 }

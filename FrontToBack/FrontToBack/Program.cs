@@ -23,7 +23,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
     option.User.RequireUniqueEmail = true;
     option.Lockout.AllowedForNewUsers = true;
     option.Lockout.MaxFailedAccessAttempts = 5;
-    option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(1);
+    option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(1);
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddScoped<LayoutServices>();
