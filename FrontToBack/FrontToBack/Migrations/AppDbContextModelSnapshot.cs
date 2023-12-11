@@ -177,7 +177,26 @@ namespace FrontToBack.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("PurchasedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("TatalPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Orders");
                 });
@@ -541,7 +560,7 @@ namespace FrontToBack.Migrations
                         .IsRequired();
 
                     b.HasOne("FrontToBack.Models.Order", "Order")
-                        .WithMany("BasketItem")
+                        .WithMany("BasketItems")
                         .HasForeignKey("OrderId");
 
                     b.HasOne("FrontToBack.Models.Product", "Product")
@@ -555,6 +574,17 @@ namespace FrontToBack.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.Order", b =>
+                {
+                    b.HasOne("FrontToBack.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Product", b =>
@@ -704,7 +734,7 @@ namespace FrontToBack.Migrations
 
             modelBuilder.Entity("FrontToBack.Models.Order", b =>
                 {
-                    b.Navigation("BasketItem");
+                    b.Navigation("BasketItems");
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Product", b =>

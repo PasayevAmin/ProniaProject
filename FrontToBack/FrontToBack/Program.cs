@@ -1,4 +1,5 @@
 using FrontToBack.DAL;
+using FrontToBack.Interfeys;
 using FrontToBack.Models;
 using FrontToBack.Services;
 using Microsoft.AspNetCore.Identity;
@@ -27,6 +28,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddScoped<LayoutServices>();
+builder.Services.AddScoped<IEmailService,EmailService>();
+
 
 var app = builder.Build();
 app.UseRouting();
