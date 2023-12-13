@@ -36,5 +36,9 @@ namespace FrontToBack.Controllers
             
             return View();
         }
+        public async Task<IActionResult> ErrorPage(string error= "it stopped")
+        {
+            return View(model:error);
+        }
     }
 }

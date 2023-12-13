@@ -3,6 +3,7 @@ using FrontToBack.Areas.Manage.ViewModels;
 
 using FrontToBack.DAL;
 using FrontToBack.Models;
+using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,11 +23,20 @@ namespace FrontToBack.Areas.Manage.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            List<Color> colors = await _context.Colors.Include(x => x.ProductColors).ToListAsync();
-          
-            return View(colors);
+            int count = await _context.Colors.CountAsync();
+
+            List<Color> colors = await _context.Colors.Skip((page-1)*3).Take(3)
+                .Include(x => x.ProductColors).ToListAsync();
+            PaginationVM<Color> paginationVM = new PaginationVM<Color>
+            {
+                Items = colors,
+                TotalPage = Math.Ceiling((double)count / 4),
+                CurrentPage = page,
+
+            };
+            return View(paginationVM);
         }
 
         public async Task<IActionResult> Create()

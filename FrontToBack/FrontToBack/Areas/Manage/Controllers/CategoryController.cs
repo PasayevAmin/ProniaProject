@@ -21,11 +21,21 @@ namespace FrontToBack.Areas.Manage.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            List<Category> categories= await _context.Categories.Include(x=>x.Products).ToListAsync();
+            int count = await _context.Categories.CountAsync();
+
+            List<Category> categories= await _context.Categories.Skip((page-1)*3).Take(3)
+                .Include(x=>x.Products)
+                .ToListAsync();
+            PaginationVM<Category> paginationVM = new PaginationVM<Category>
+            {
+                Items = categories,
+                TotalPage = Math.Ceiling((double)count / 3),
+                CurrentPage = page
+            };
            
-            return View(categories);
+            return View(paginationVM);
         }
 
         public async Task<IActionResult> Create()

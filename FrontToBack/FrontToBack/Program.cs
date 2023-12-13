@@ -1,5 +1,6 @@
 using FrontToBack.DAL;
 using FrontToBack.Interfeys;
+using FrontToBack.Middlewares;
 using FrontToBack.Models;
 using FrontToBack.Services;
 using Microsoft.AspNetCore.Identity;
@@ -41,6 +42,7 @@ app.MapControllerRoute(
     );
 app.UseStaticFiles();
 app.UseSession();
+app.UseMiddleware<GlobalExceptionMiddlewares>();
 
 
 

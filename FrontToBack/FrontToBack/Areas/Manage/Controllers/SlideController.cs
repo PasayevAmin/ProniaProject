@@ -4,8 +4,10 @@ using FrontToBack.Areas.Manage.ViewModels;
 using FrontToBack.DAL;
 using FrontToBack.Models;
 using FrontToBack.Utilities.Extension;
+using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace FrontToBack.Areas.Manage.Controllers
@@ -25,10 +27,19 @@ namespace FrontToBack.Areas.Manage.Controllers
             _env = env;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            List<Slide> slides= await _context.Slides.ToListAsync();
-            return View(slides);
+            int count = await _context.Slides.CountAsync();
+            List<Slide> slides= await _context.Slides.Skip((page - 1) * 3).Take(3)
+                .ToListAsync();
+            PaginationVM<Slide> paginationVM = new PaginationVM<Slide>
+            {
+                Items = slides,
+                TotalPage = Math.Ceiling((double)count / 3),
+                CurrentPage = page,
+
+            };
+            return View(paginationVM);
         }
         public async Task<IActionResult> Create()
         {

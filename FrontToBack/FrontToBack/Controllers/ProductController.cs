@@ -1,5 +1,6 @@
 ﻿using FrontToBack.DAL;
 using FrontToBack.Models;
+using FrontToBack.Utilities.Exceptions;
 using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +25,8 @@ namespace FrontToBack.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            if (id <= 0)
-            {
-                return BadRequest();
-            }
+            if (id <= 0) throw new WrongRequestExceptions("Wrong Search");
+           
 
             Product product = await _context.Products
                 .Include(p => p.Category)
@@ -38,10 +37,8 @@ namespace FrontToBack.Controllers
                 .FirstOrDefaultAsync(x => x.Id == id);
 
 
-            if (product == null)
-            {
-                return NotFound();
-            }
+            if (product == null) throw new NotFoundExceptions("No product found");
+            
             List<Product> relatedproducts =await _context.Products
                 .Include(x => x.Category)
                 .Include(x => x.ProductImages)
